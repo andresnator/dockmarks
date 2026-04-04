@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- Browser window background -->
+  <rect x="4" y="8" width="120" height="112" rx="10" ry="10" fill="#378ADD"/>
+  <!-- Browser chrome top bar -->
+  <rect x="4" y="8" width="120" height="24" rx="10" ry="10" fill="#2a6bb5"/>
+  <!-- Fix bottom corners of top bar (straight) -->
+  <rect x="4" y="22" width="120" height="10" fill="#2a6bb5"/>
+  <!-- Browser dots -->
+  <circle cx="20" cy="20" r="4" fill="#ffffff" opacity="0.7"/>
+  <circle cx="32" cy="20" r="4" fill="#ffffff" opacity="0.7"/>
+  <circle cx="44" cy="20" r="4" fill="#ffffff" opacity="0.7"/>
+  <!-- Main content area -->
+  <rect x="8" y="34" width="72" height="82" fill="#f0f3f8"/>
+  <!-- Side panel area -->
+  <rect x="80" y="34" width="40" height="82" fill="#ffffff"/>
+  <!-- Divider between content and panel -->
+  <rect x="79" y="34" width="2" height="82" fill="#378ADD" opacity="0.3"/>
+  <!-- Grid items in side panel (3x2 grid of small squares) -->
+  <rect x="84" y="42" width="10" height="10" rx="2" fill="#1D9E75" opacity="0.9"/>
+  <rect x="96" y="42" width="10" height="10" rx="2" fill="#1D9E75" opacity="0.7"/>
+  <rect x="84" y="55" width="10" height="10" rx="2" fill="#1D9E75" opacity="0.6"/>
+  <rect x="96" y="55" width="10" height="10" rx="2" fill="#1D9E75" opacity="0.9"/>
+  <rect x="84" y="68" width="10" height="10" rx="2" fill="#1D9E75" opacity="0.7"/>
+  <rect x="96" y="68" width="10" height="10" rx="2" fill="#1D9E75" opacity="0.6"/>
+  <!-- Bookmark tab peeking from right edge -->
+  <path d="M112 50 L124 50 L124 78 L118 72 L112 78 Z" fill="#EF9F27"/>
+  <!-- Bottom bar -->
+  <rect x="8" y="112" width="112" height="4" rx="2" fill="#378ADD" opacity="0.3"/>
+</svg>

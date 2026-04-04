@@ -1,0 +1,218 @@
+/* ============================================================
+   THEME: TERMINAL — Hacker/developer aesthetic
+   ============================================================ */
+
+[data-theme="terminal"] {
+  /* Colors */
+  --color-bg: #0A0A0A;
+  --color-header-bg: #0A0A0A;
+  --color-text: #ffffff;
+  --color-text-muted: #888888;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-accent: #00FF41;
+  --color-hover-bg: rgba(0, 255, 65, 0.05);
+  --color-input-bg: #111111;
+  --color-card-bg: #111111;
+  --color-card-border: rgba(255, 255, 255, 0.08);
+  --color-card-hover-bg: #161616;
+  --color-tooltip-bg: #000000;
+  --color-tooltip-text: #00FF41;
+  --color-tooltip-border: #00FF41;
+  --color-success: #00FF41;
+  --color-warning: #EF9F27;
+  --color-btn-text: #000000;
+  --color-scrollbar: #00FF41;
+  --color-scrollbar-track: transparent;
+
+  /* Typography */
+  --font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+  --font-family-mono: var(--font-family);
+  --font-family-tooltip: var(--font-family);
+  --font-size-base: 12px;
+  --font-size-sm: 11px;
+  --font-size-xs: 10px;
+  --font-size-title: 13px;
+
+  /* Shape — NO border-radius in terminal */
+  --border-radius: 0px;
+
+  /* Tab overrides — bracket notation handled in JS */
+  --tab-text-transform: uppercase;
+  --tab-letter-spacing: 0.1em;
+  --tab-active-weight: 700;
+
+  /* Settings */
+  --settings-label-transform: uppercase;
+}
+
+/* ---- Terminal-specific overrides ---- */
+
+/* DOCKMARKS title in header */
+[data-theme="terminal"] .header-title {
+  color: #00FF41;
+  letter-spacing: 0.12em;
+}
+
+/* Settings gear icon in accent color */
+[data-theme="terminal"] .header-settings-btn {
+  color: #00FF41;
+}
+
+/* Search bar as terminal prompt */
+[data-theme="terminal"] .search-input {
+  font-family: var(--font-family);
+  border-radius: 0;
+}
+
+[data-theme="terminal"] .search-input::placeholder {
+  color: #00FF41;
+  opacity: 0.5;
+}
+
+/* Blinking cursor in empty search */
+[data-theme="terminal"] .search-input:placeholder-shown {
+  caret-color: #00FF41;
+  animation: terminal-blink 1s step-end infinite;
+}
+
+@keyframes terminal-blink {
+  0%, 100% { caret-color: #00FF41; }
+  50% { caret-color: transparent; }
+}
+
+/* Active tab — bracket notation applied via JS class */
+[data-theme="terminal"] .tab-btn.active {
+  letter-spacing: 0.1em;
+}
+
+/* Sync button */
+[data-theme="terminal"] .settings-sync-btn {
+  border-radius: 0;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: transparent;
+  color: #00FF41;
+  border: 1px solid #00FF41;
+  padding: 10px 14px;
+}
+
+[data-theme="terminal"] .settings-sync-btn:hover {
+  background: rgba(0, 255, 65, 0.08);
+  opacity: 1;
+}
+
+/* URL input as terminal prompt */
+[data-theme="terminal"] .settings-url-input {
+  border-radius: 0;
+}
+
+[data-theme="terminal"] .settings-url-row {
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Cached data warning — amber in terminal */
+[data-theme="terminal"] .settings-sync-status.error {
+  color: #EF9F27;
+  font-style: italic;
+}
+
+/* Theme cards */
+[data-theme="terminal"] .theme-card {
+  border-radius: 0;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="terminal"] .theme-card.active {
+  border-color: #00FF41;
+}
+
+/* Scrollbar — thin green */
+[data-theme="terminal"] #main-content {
+  scrollbar-color: #00FF41 transparent;
+}
+
+[data-theme="terminal"] #main-content::-webkit-scrollbar-thumb {
+  background: #00FF41;
+  border-radius: 0;
+}
+
+/* DOCKMARKS watermark behind content */
+[data-theme="terminal"] #main-content::before {
+  content: 'DOCKMARKS';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  font-family: var(--font-family);
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  color: rgba(0, 255, 65, 0.04);
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 0;
+  user-select: none;
+}
+
+/* Bookmark cards — no border-radius */
+[data-theme="terminal"] .bookmark-card {
+  border-radius: 0;
+}
+
+[data-theme="terminal"] .bookmark-card:hover {
+  background: #161616;
+  border-color: rgba(0, 255, 65, 0.3);
+}
+
+/* Tooltip — terminal style */
+[data-theme="terminal"] .bookmark-tooltip {
+  border-radius: 0;
+  font-family: var(--font-family);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+}
+
+/* ---- Terminal footer bar ---- */
+/* The footer is injected by JS as a sibling of #app, or inside #app */
+.terminal-footer {
+  display: none;
+}
+
+[data-theme="terminal"] .terminal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: #050505;
+  font-family: var(--font-family);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: #00FF41;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+/* Settings view — terminal labels */
+[data-theme="terminal"] .settings-section-label {
+  letter-spacing: 0.12em;
+  color: #00FF41;
+}
+
+[data-theme="terminal"] .settings-header {
+  color: #00FF41;
+  letter-spacing: 0.12em;
+}
+
+/* Empty state in terminal */
+[data-theme="terminal"] .empty-state-icon {
+  color: #00FF41;
+}
+
+[data-theme="terminal"] .empty-state-title {
+  color: #00FF41;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
