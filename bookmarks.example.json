@@ -1,0 +1,85 @@
+[
+  {
+    "id": "jira",
+    "name": "Jira",
+    "url": "https://yourcompany.atlassian.net",
+    "description": "Issue tracker and project management",
+    "logo": "https://yourcompany.atlassian.net/favicon.ico",
+    "section": "TOOLS",
+    "tags": ["issues", "sprints", "tracking"]
+  },
+  {
+    "id": "confluence",
+    "name": "Confluence",
+    "url": "https://yourcompany.atlassian.net/wiki",
+    "description": "Team documentation and knowledge base",
+    "logo": "https://yourcompany.atlassian.net/wiki/favicon.ico",
+    "section": "WIKIS",
+    "tags": ["docs", "wiki", "knowledge"]
+  },
+  {
+    "id": "github",
+    "name": "GitHub",
+    "url": "https://github.com/yourcompany",
+    "description": "Source code and pull requests",
+    "logo": "https://github.com/favicon.ico",
+    "section": "TOOLS",
+    "tags": ["code", "git", "prs"]
+  },
+  {
+    "id": "figma",
+    "name": "Figma",
+    "url": "https://figma.com",
+    "description": "Design system and UI mockups",
+    "section": "TOOLS",
+    "tags": ["design", "ui", "mockups"]
+  },
+  {
+    "id": "grafana",
+    "name": "Grafana",
+    "url": "https://grafana.yourcompany.com",
+    "description": "Infrastructure and application dashboards",
+    "section": "DASHBOARDS",
+    "tags": ["monitoring", "metrics", "alerts"]
+  },
+  {
+    "id": "datadog",
+    "name": "Datadog",
+    "url": "https://app.datadoghq.com",
+    "description": "APM, logs, and infrastructure monitoring",
+    "section": "DASHBOARDS",
+    "tags": ["apm", "logs", "monitoring"]
+  },
+  {
+    "id": "notion",
+    "name": "Notion",
+    "url": "https://notion.so/yourcompany",
+    "description": "Team wiki and project notes",
+    "section": "WIKIS",
+    "tags": ["notes", "wiki", "docs"]
+  },
+  {
+    "id": "staging",
+    "name": "Staging",
+    "url": "https://staging.yourcompany.com",
+    "description": "Staging environment",
+    "section": "SITES",
+    "tags": ["staging", "env"]
+  },
+  {
+    "id": "production",
+    "name": "Production",
+    "url": "https://yourcompany.com",
+    "description": "Production environment",
+    "section": "SITES",
+    "tags": ["prod", "env"]
+  },
+  {
+    "id": "admin",
+    "name": "Admin Panel",
+    "url": "https://admin.yourcompany.com",
+    "description": "Internal admin dashboard",
+    "section": "SITES",
+    "tags": ["admin", "internal"]
+  }
+]
