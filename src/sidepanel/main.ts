@@ -150,7 +150,15 @@ function toggleSettings(): void {
     settingsContainer.hidden = true;
     gridContainer.hidden = false;
     tabbarEl.hidden = false;
-    updateGrid();
+    // Reload bookmarks in case a sync completed while settings was open
+    getLocalStorage(['bookmarks', 'syncError']).then((cached) => {
+      if (cached.bookmarks && cached.bookmarks.length > 0) {
+        allBookmarks = cached.bookmarks;
+      }
+      header.setError(!!cached.syncError);
+      tabBar.update(allBookmarks);
+      updateGrid();
+    });
   }
 }
 
@@ -263,6 +271,7 @@ chrome.runtime.onMessage.addListener((message: MessageType) => {
     });
   }
 });
+
 
 // ---- Boot ----
 
