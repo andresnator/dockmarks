@@ -53,11 +53,12 @@ async function fetchAndCache(): Promise<void> {
     const { bookmarks, rawText } = await fetchBookmarks(jsonUrl);
     const newHash = await hashContent(rawText);
 
-    const cached = await getLocalStorage(['lastSyncHash']);
+    const cached = await getLocalStorage(['lastSyncHash', 'bookmarks']);
     const lastHash = cached.lastSyncHash;
+    const cachedBookmarks = cached.bookmarks ?? [];
 
-    if (newHash !== lastHash) {
-      // Content changed — update cache
+    if (newHash !== lastHash || cachedBookmarks.length === 0) {
+      // Content changed, or cache is empty (e.g. after a bug fix) — update cache
       await setLocalStorage({
         bookmarks,
         lastSyncHash: newHash,
@@ -65,7 +66,7 @@ async function fetchAndCache(): Promise<void> {
         syncErrorTime: 0,
       });
     } else {
-      // Content unchanged — only update sync timestamp
+      // Content unchanged — only clear error flags
       await setLocalStorage({
         syncError: false,
         syncErrorTime: 0,
