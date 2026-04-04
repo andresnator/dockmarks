@@ -26,6 +26,12 @@ export class Header {
     });
   }
 
+  private getPlaceholder(): string {
+    return document.body.dataset['theme'] === 'terminal'
+      ? '$ search...'
+      : 'Search bookmarks...';
+  }
+
   private render(): string {
     return `
       <div class="header-logo">
@@ -35,7 +41,7 @@ export class Header {
         <input
           type="text"
           class="search-input"
-          placeholder="Search..."
+          placeholder="${this.getPlaceholder()}"
           aria-label="Search bookmarks"
           autocomplete="off"
           spellcheck="false"
@@ -45,6 +51,10 @@ export class Header {
         ⚙
       </button>
     `;
+  }
+
+  updatePlaceholder(): void {
+    if (this.searchInput) this.searchInput.placeholder = this.getPlaceholder();
   }
 
   setError(hasError: boolean): void {

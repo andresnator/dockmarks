@@ -25,13 +25,29 @@ export class SettingsView {
     this.options = options;
   }
 
+  private getLabels(isTerminal: boolean) {
+    return isTerminal ? {
+      dataSource: '> Data Source',
+      syncBtn: '[ sync ]',
+      syncBtnActive: 'syncing...',
+      theme: '> Theme',
+      themeNeutral: 'Neutral',
+      themeTerminal: 'Terminal',
+    } : {
+      dataSource: 'Data Source',
+      syncBtn: 'Sync',
+      syncBtnActive: 'Syncing...',
+      theme: 'Theme',
+      themeNeutral: 'Neutral',
+      themeTerminal: 'Terminal',
+    };
+  }
+
   render(currentUrl: string, status: SyncStatus): void {
     const currentTheme = this.options.themeManager.get();
-    const isTerminal = currentTheme === 'terminal';
-    const syncBtnLabel = isTerminal ? 'EXECUTE_SYNC' : 'Sync';
-    const dataSourceLabel = isTerminal ? 'SYSTEM_DATA_SRC' : 'Data Source';
-    const themeLabel = isTerminal ? 'UI_ENVIRONMENT' : 'Theme';
-    const headerLabel = isTerminal ? 'CONFIG' : 'Settings';
+    const isTerminal = document.body.dataset['theme'] === 'terminal';
+    const labels = this.getLabels(isTerminal);
+    const headerLabel = isTerminal ? 'Config' : 'Settings';
     const urlPlaceholder = isTerminal ? '> https://...' : 'https://example.com/bookmarks.json';
 
     this.el.innerHTML = `
@@ -39,7 +55,7 @@ export class SettingsView {
         <div class="settings-header">${headerLabel}</div>
 
         <div class="settings-section">
-          <div class="settings-section-label">${dataSourceLabel}</div>
+          <div class="settings-section-label">${labels.dataSource}</div>
           <div class="settings-url-row">
             <input
               type="url"
@@ -49,7 +65,7 @@ export class SettingsView {
               autocomplete="off"
               spellcheck="false"
             />
-            <button class="settings-sync-btn">${syncBtnLabel}</button>
+            <button class="settings-sync-btn">${labels.syncBtn}</button>
           </div>
           <div class="settings-sync-status ${status.syncError ? 'error' : 'success'}">
             ${this.formatSyncStatus(status)}
@@ -57,12 +73,13 @@ export class SettingsView {
         </div>
 
         <div class="settings-section">
-          <div class="settings-section-label">${themeLabel}</div>
+          <div class="settings-section-label">${labels.theme}</div>
           <div class="theme-selector">
-            ${this.renderThemeCard('neutral', 'Neutral', currentTheme)}
-            ${this.renderThemeCard('terminal', 'Terminal', currentTheme)}
+            ${this.renderThemeCard('neutral', labels.themeNeutral, currentTheme)}
+            ${this.renderThemeCard('terminal', labels.themeTerminal, currentTheme)}
           </div>
         </div>
+        ${isTerminal ? '<div class="settings-dock-decor">[ DOCK ]</div>' : ''}
       </div>
     `;
 
@@ -79,7 +96,7 @@ export class SettingsView {
     // Sync button
     this.syncBtn.addEventListener('click', () => {
       this.syncBtn.disabled = true;
-      this.syncBtn.textContent = isTerminal ? 'SYNCING...' : 'Syncing...';
+      this.syncBtn.textContent = labels.syncBtnActive;
       this.options.onSyncClick();
     });
 
@@ -94,9 +111,6 @@ export class SettingsView {
 
   private renderThemeCard(theme: Theme, label: string, currentTheme: Theme): string {
     const isActive = currentTheme === theme;
-    const displayLabel = currentTheme === 'terminal'
-      ? (theme === 'neutral' ? 'NEUTRAL_ENV' : 'TERMINAL_ENV')
-      : label;
     return `
       <div class="theme-card${isActive ? ' active' : ''}" data-theme="${theme}" role="button" tabindex="0">
         <div class="theme-card-preview" data-theme-preview="${theme}">
@@ -104,7 +118,7 @@ export class SettingsView {
           <div class="preview-block"></div>
           <div class="preview-block"></div>
         </div>
-        <div class="theme-card-label">${displayLabel}</div>
+        <div class="theme-card-label">${label}</div>
       </div>
     `;
   }
@@ -121,9 +135,9 @@ export class SettingsView {
     this.syncStatus.className = `settings-sync-status ${status.syncError ? 'error' : 'success'}`;
     this.syncStatus.textContent = this.formatSyncStatus(status);
     if (this.syncBtn) {
-      const isTerminal = this.options.themeManager.get() === 'terminal';
+      const isTerminal = document.body.dataset['theme'] === 'terminal';
       this.syncBtn.disabled = false;
-      this.syncBtn.textContent = isTerminal ? 'EXECUTE_SYNC' : 'Sync';
+      this.syncBtn.textContent = this.getLabels(isTerminal).syncBtn;
     }
   }
 

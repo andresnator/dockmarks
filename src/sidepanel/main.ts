@@ -181,6 +181,7 @@ async function renderSettings(): Promise<void> {
       },
       onThemeChange: async (theme: Theme) => {
         await themeManager.set(theme);
+        header.updatePlaceholder(); // update placeholder for new theme
         renderSettings(); // re-render with new theme labels
       },
       themeManager,

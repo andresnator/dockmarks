@@ -23,6 +23,8 @@
   --color-btn-text: #000000;
   --color-scrollbar: #00FF41;
   --color-scrollbar-track: transparent;
+  --color-accent-hover-bg: rgba(0, 255, 65, 0.08);
+  --color-accent-30: rgba(0, 255, 65, 0.3);
 
   /* Typography */
   --font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
@@ -49,13 +51,13 @@
 
 /* DOCKMARKS title in header */
 [data-theme="terminal"] .header-title {
-  color: #00FF41;
+  color: var(--color-accent);
   letter-spacing: 0.12em;
 }
 
 /* Settings gear icon in accent color */
 [data-theme="terminal"] .header-settings-btn {
-  color: #00FF41;
+  color: var(--color-accent);
 }
 
 /* Search bar as terminal prompt */
@@ -65,18 +67,18 @@
 }
 
 [data-theme="terminal"] .search-input::placeholder {
-  color: #00FF41;
+  color: var(--color-accent);
   opacity: 0.5;
 }
 
 /* Blinking cursor in empty search */
 [data-theme="terminal"] .search-input:placeholder-shown {
-  caret-color: #00FF41;
+  caret-color: var(--color-accent);
   animation: terminal-blink 1s step-end infinite;
 }
 
 @keyframes terminal-blink {
-  0%, 100% { caret-color: #00FF41; }
+  0%, 100% { caret-color: var(--color-accent); }
   50% { caret-color: transparent; }
 }
 
@@ -92,13 +94,13 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   background: transparent;
-  color: #00FF41;
-  border: 1px solid #00FF41;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
   padding: 10px 14px;
 }
 
 [data-theme="terminal"] .settings-sync-btn:hover {
-  background: rgba(0, 255, 65, 0.08);
+  background: var(--color-accent-hover-bg);
   opacity: 1;
 }
 
@@ -125,16 +127,16 @@
 }
 
 [data-theme="terminal"] .theme-card.active {
-  border-color: #00FF41;
+  border-color: var(--color-accent);
 }
 
 /* Scrollbar — thin green */
 [data-theme="terminal"] #main-content {
-  scrollbar-color: #00FF41 transparent;
+  scrollbar-color: var(--color-accent) transparent;
 }
 
 [data-theme="terminal"] #main-content::-webkit-scrollbar-thumb {
-  background: #00FF41;
+  background: var(--color-accent);
   border-radius: 0;
 }
 
@@ -162,16 +164,18 @@
 }
 
 [data-theme="terminal"] .bookmark-card:hover {
-  background: #161616;
-  border-color: rgba(0, 255, 65, 0.3);
+  background: var(--color-card-hover-bg);
+  border-color: var(--color-accent-30);
 }
 
 /* Tooltip — terminal style */
 [data-theme="terminal"] .bookmark-tooltip {
+  background: #111111;
+  border-color: var(--color-accent);
   border-radius: 0;
-  font-family: var(--font-family);
   font-size: 10px;
   letter-spacing: 0.05em;
+  box-shadow: none;
 }
 
 /* ---- Terminal footer bar ---- */
@@ -190,7 +194,7 @@
   font-family: var(--font-family);
   font-size: 9px;
   letter-spacing: 0.08em;
-  color: #00FF41;
+  color: var(--color-accent);
   text-transform: uppercase;
   flex-shrink: 0;
 }
@@ -198,21 +202,33 @@
 /* Settings view — terminal labels */
 [data-theme="terminal"] .settings-section-label {
   letter-spacing: 0.12em;
-  color: #00FF41;
+  color: var(--color-accent);
 }
 
 [data-theme="terminal"] .settings-header {
-  color: #00FF41;
+  color: var(--color-accent);
   letter-spacing: 0.12em;
 }
 
 /* Empty state in terminal */
 [data-theme="terminal"] .empty-state-icon {
-  color: #00FF41;
+  color: var(--color-accent);
 }
 
 [data-theme="terminal"] .empty-state-title {
-  color: #00FF41;
+  color: var(--color-accent);
   text-transform: uppercase;
   letter-spacing: 0.08em;
+}
+
+[data-theme="terminal"] .settings-dock-decor {
+  margin-top: 24px;
+  text-align: center;
+  font-family: var(--font-family);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+  opacity: 0.35;
+  user-select: none;
+  pointer-events: none;
 }

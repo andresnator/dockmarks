@@ -21,6 +21,15 @@ export class BookmarkCard {
     card.setAttribute('aria-label', `Open ${this.bookmark.name}`);
     card.innerHTML = this.buildHTML();
 
+    const img = card.querySelector<HTMLImageElement>('.bookmark-card-logo');
+    if (img) {
+      img.addEventListener('error', () => {
+        img.style.display = 'none';
+        const fallback = img.nextElementSibling as HTMLElement | null;
+        if (fallback) fallback.style.display = 'flex';
+      });
+    }
+
     card.addEventListener('click', () => this.handleClick());
     card.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
@@ -35,16 +44,15 @@ export class BookmarkCard {
   private buildHTML(): string {
     const { name, logo, section, description } = this.bookmark;
     const initial = name.charAt(0).toUpperCase();
-    const tooltipText = description
-      ? `${section} — ${description}`
-      : section;
+    const tooltipHTML = description
+      ? `<strong>${this.escapeHtml(section)}</strong><br>${this.escapeHtml(description)}`
+      : `<strong>${this.escapeHtml(section)}</strong>`;
 
     const logoHTML = logo
       ? `<img
            class="bookmark-card-logo"
            src="${this.escapeAttr(logo)}"
            alt=""
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
          />
          <div class="bookmark-card-logo-fallback" style="display:none">${this.escapeHtml(initial)}</div>`
       : `<div class="bookmark-card-logo-fallback">${this.escapeHtml(initial)}</div>`;
@@ -52,7 +60,7 @@ export class BookmarkCard {
     return `
       ${logoHTML}
       <span class="bookmark-card-name">${this.escapeHtml(name)}</span>
-      <span class="bookmark-tooltip">${this.escapeHtml(tooltipText)}</span>
+      <span class="bookmark-tooltip">${tooltipHTML}</span>
     `;
   }
 
