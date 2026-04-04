@@ -28,9 +28,15 @@ describe('validateBookmarks', () => {
     logo: 'https://cdn.example.com/jira.svg',
   };
 
-  it('returns valid bookmarks unchanged', () => {
+  it('accepts wrapped format: { bookmarks: [...] }', () => {
     const data = { bookmarks: [validBookmark] };
     const result = validateBookmarks(data);
+    expect(result).toHaveLength(1);
+    expect(result[0].id).toBe('bm-1');
+  });
+
+  it('accepts direct array format: [...]', () => {
+    const result = validateBookmarks([validBookmark]);
     expect(result).toHaveLength(1);
     expect(result[0].id).toBe('bm-1');
   });

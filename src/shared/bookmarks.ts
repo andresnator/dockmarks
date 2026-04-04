@@ -9,10 +9,14 @@ export async function hashContent(content: string): Promise<string> {
 
 export function validateBookmarks(data: unknown): Bookmark[] {
   if (!data || typeof data !== 'object') return [];
-  const obj = data as Record<string, unknown>;
-  if (!Array.isArray(obj['bookmarks'])) return [];
 
-  return (obj['bookmarks'] as unknown[]).filter((item): item is Bookmark => {
+  const items: unknown[] = Array.isArray(data)
+    ? data
+    : Array.isArray((data as Record<string, unknown>)['bookmarks'])
+      ? ((data as Record<string, unknown>)['bookmarks'] as unknown[])
+      : [];
+
+  return items.filter((item): item is Bookmark => {
     if (!item || typeof item !== 'object') return false;
     const bm = item as Record<string, unknown>;
     return (
@@ -23,6 +27,7 @@ export function validateBookmarks(data: unknown): Bookmark[] {
     );
   });
 }
+
 
 export interface FetchResult {
   bookmarks: Bookmark[];
