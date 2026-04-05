@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach, vi, type Mock } from 'vitest';
 import { ThemeManager } from '../../src/shared/theme';
 
 describe('ThemeManager', () => {
@@ -12,7 +12,7 @@ describe('ThemeManager', () => {
 
   describe('load', () => {
     it('defaults to neutral when no theme stored', async () => {
-      vi.mocked(chrome.storage.sync.get).mockResolvedValue({});
+      (chrome.storage.sync.get as Mock).mockResolvedValue({});
 
       await manager.load();
 
@@ -21,7 +21,7 @@ describe('ThemeManager', () => {
     });
 
     it('loads stored theme', async () => {
-      vi.mocked(chrome.storage.sync.get).mockResolvedValue({ theme: 'terminal' });
+      (chrome.storage.sync.get as Mock).mockResolvedValue({ theme: 'terminal' });
 
       await manager.load();
 

@@ -1,5 +1,34 @@
+import type { Mock } from 'vitest';
+
+// Typed storage area mock that returns Record instead of void
+interface StorageAreaMock {
+  get: Mock<any[], Record<string, unknown>>;
+  set: Mock<any[], void>;
+}
+
+interface ChromeMock {
+  storage: {
+    sync: StorageAreaMock;
+    local: StorageAreaMock;
+    onChanged: { addListener: Mock };
+  };
+  runtime: {
+    sendMessage: Mock;
+    getURL: Mock;
+    onMessage: { addListener: Mock };
+    onInstalled: { addListener: Mock };
+  };
+  alarms: {
+    create: Mock;
+    onAlarm: { addListener: Mock };
+  };
+  tabs: {
+    create: Mock;
+  };
+}
+
 // Minimal Chrome API mock for unit tests
-const chromeMock = {
+const chromeMock: ChromeMock = {
   storage: {
     sync: {
       get: vi.fn().mockResolvedValue({}),

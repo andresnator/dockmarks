@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach, vi, type Mock } from 'vitest';
 import { getRecentIds, recordUsage } from '../../src/shared/recentlyUsed';
 
 describe('recentlyUsed', () => {
@@ -8,19 +8,19 @@ describe('recentlyUsed', () => {
 
   describe('getRecentIds', () => {
     it('returns empty array when no data stored', async () => {
-      vi.mocked(chrome.storage.local.get).mockResolvedValue({});
+      (chrome.storage.local.get as Mock).mockResolvedValue({});
       expect(await getRecentIds()).toEqual([]);
     });
 
     it('returns stored IDs', async () => {
-      vi.mocked(chrome.storage.local.get).mockResolvedValue({
+      (chrome.storage.local.get as Mock).mockResolvedValue({
         recentlyUsedIds: ['a', 'b', 'c'],
       });
       expect(await getRecentIds()).toEqual(['a', 'b', 'c']);
     });
 
     it('returns empty array when stored value is not an array', async () => {
-      vi.mocked(chrome.storage.local.get).mockResolvedValue({
+      (chrome.storage.local.get as Mock).mockResolvedValue({
         recentlyUsedIds: 'invalid',
       });
       expect(await getRecentIds()).toEqual([]);
@@ -29,7 +29,7 @@ describe('recentlyUsed', () => {
 
   describe('recordUsage', () => {
     it('adds a new ID to the front', async () => {
-      vi.mocked(chrome.storage.local.get).mockResolvedValue({
+      (chrome.storage.local.get as Mock).mockResolvedValue({
         recentlyUsedIds: ['b', 'c'],
       });
 
@@ -41,7 +41,7 @@ describe('recentlyUsed', () => {
     });
 
     it('deduplicates by moving existing ID to front', async () => {
-      vi.mocked(chrome.storage.local.get).mockResolvedValue({
+      (chrome.storage.local.get as Mock).mockResolvedValue({
         recentlyUsedIds: ['a', 'b', 'c'],
       });
 
@@ -54,13 +54,13 @@ describe('recentlyUsed', () => {
 
     it('limits to 10 items', async () => {
       const existing = Array.from({ length: 10 }, (_, i) => `id-${i}`);
-      vi.mocked(chrome.storage.local.get).mockResolvedValue({
+      (chrome.storage.local.get as Mock).mockResolvedValue({
         recentlyUsedIds: existing,
       });
 
       await recordUsage('new-id');
 
-      const saved = vi.mocked(chrome.storage.local.set).mock.calls[0][0] as {
+      const saved = (chrome.storage.local.set as Mock).mock.calls[0][0] as {
         recentlyUsedIds: string[];
       };
       expect(saved.recentlyUsedIds).toHaveLength(10);
@@ -69,7 +69,7 @@ describe('recentlyUsed', () => {
     });
 
     it('works when storage is empty', async () => {
-      vi.mocked(chrome.storage.local.get).mockResolvedValue({});
+      (chrome.storage.local.get as Mock).mockResolvedValue({});
 
       await recordUsage('first');
 
