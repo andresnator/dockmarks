@@ -34,7 +34,7 @@ export class Header {
     return `
       <div class="header-logo">
         <img class="header-logo-img" src="${chrome.runtime.getURL('icons/pushpin-20.png')}" alt="Dockmarks logo" />
-        <span class="header-title">DOCKMARKS</span>
+        <span class="header-title">Dockmarks</span>
       </div>
       <div class="header-search">
         <input
