@@ -9,8 +9,7 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "skipLibCheck": true,
-    "outDir": "dist",
-    "rootDir": "src",
+    "types": ["vitest/globals", "chrome"],
     "paths": {
       "@shared/*": ["./src/shared/*"],
       "@components/*": ["./src/sidepanel/components/*"]

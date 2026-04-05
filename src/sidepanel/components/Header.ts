@@ -1,5 +1,3 @@
-import type { Theme } from '../../shared/types';
-
 interface HeaderOptions {
   onSettingsClick: () => void;
   onSearch: (query: string) => void;

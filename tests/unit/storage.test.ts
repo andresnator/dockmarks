@@ -9,7 +9,7 @@ describe('syncStorage', () => {
 
   it('getSyncStorage returns typed values', async () => {
     const mockData: Partial<SyncStorage> = { jsonUrl: 'https://example.com/bookmarks.json', theme: 'neutral' };
-    vi.mocked(chrome.storage.sync.get).mockResolvedValue(mockData);
+    vi.mocked(chrome.storage.sync.get).mockResolvedValue(mockData as never);
 
     const result = await getSyncStorage(['jsonUrl', 'theme']);
     expect(result.jsonUrl).toBe('https://example.com/bookmarks.json');
@@ -29,7 +29,7 @@ describe('localStorage (chrome.storage.local)', () => {
 
   it('getLocalStorage returns typed values', async () => {
     const mockBookmarks = [{ id: '1', name: 'Test', url: 'https://test.com', section: 'Sites' }];
-    vi.mocked(chrome.storage.local.get).mockResolvedValue({ bookmarks: mockBookmarks, syncError: false });
+    vi.mocked(chrome.storage.local.get).mockResolvedValue({ bookmarks: mockBookmarks, syncError: false } as never);
 
     const result = await getLocalStorage(['bookmarks', 'syncError']);
     expect(result.bookmarks).toEqual(mockBookmarks);

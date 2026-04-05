@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { Header } from '@components/Header';
 
 describe('Header — dynamic placeholder', () => {
@@ -16,7 +16,7 @@ describe('Header — dynamic placeholder', () => {
   });
 
   it('renders placeholder "Search bookmarks..." when theme is neutral (not set)', () => {
-    const header = new Header(container, {
+    new Header(container, {
       onSettingsClick: () => {},
       onSearch: () => {},
     });
@@ -27,7 +27,7 @@ describe('Header — dynamic placeholder', () => {
 
   it('renders placeholder "$ search..." when theme is terminal', () => {
     document.body.dataset['theme'] = 'terminal';
-    const header = new Header(container, {
+    new Header(container, {
       onSettingsClick: () => {},
       onSearch: () => {},
     });
