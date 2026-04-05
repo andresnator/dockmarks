@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Pin head -->
+  <ellipse cx="24" cy="18" rx="16" ry="14" fill="#E53935" transform="rotate(-35 24 18)"/>
+  <!-- Pin head highlight -->
+  <ellipse cx="19" cy="13" rx="6" ry="4" fill="#EF5350" transform="rotate(-35 19 13)" opacity="0.7"/>
+  <!-- Pin body / barrel -->
+  <rect x="28" y="22" width="10" height="14" rx="3" fill="#D32F2F" transform="rotate(-35 33 29)"/>
+  <!-- Pin needle -->
+  <line x1="38" y1="36" x2="52" y2="54" stroke="#B0BEC5" stroke-width="4" stroke-linecap="round"/>
+  <line x1="39" y1="37" x2="50" y2="52" stroke="#CFD8DC" stroke-width="2" stroke-linecap="round"/>
+  <!-- Shadow -->
+  <ellipse cx="48" cy="58" rx="8" ry="3" fill="black" opacity="0.1"/>
+</svg>
