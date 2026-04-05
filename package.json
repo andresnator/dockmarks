@@ -1,6 +1,6 @@
 {
   "name": "dockmarks",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Corporate bookmark side panel for Chrome",
   "type": "module",
   "scripts": {

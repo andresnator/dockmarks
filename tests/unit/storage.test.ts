@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach, vi, type Mock } from 'vitest';
 import { getSyncStorage, setSyncStorage, getLocalStorage, setLocalStorage } from '../../src/shared/storage';
 import type { SyncStorage, LocalStorage } from '../../src/shared/types';
 
@@ -9,7 +9,7 @@ describe('syncStorage', () => {
 
   it('getSyncStorage returns typed values', async () => {
     const mockData: Partial<SyncStorage> = { jsonUrl: 'https://example.com/bookmarks.json', theme: 'neutral' };
-    vi.mocked(chrome.storage.sync.get).mockResolvedValue(mockData as never);
+    (chrome.storage.sync.get as Mock).mockResolvedValue(mockData);
 
     const result = await getSyncStorage(['jsonUrl', 'theme']);
     expect(result.jsonUrl).toBe('https://example.com/bookmarks.json');
@@ -29,7 +29,7 @@ describe('localStorage (chrome.storage.local)', () => {
 
   it('getLocalStorage returns typed values', async () => {
     const mockBookmarks = [{ id: '1', name: 'Test', url: 'https://test.com', section: 'Sites' }];
-    vi.mocked(chrome.storage.local.get).mockResolvedValue({ bookmarks: mockBookmarks, syncError: false } as never);
+    (chrome.storage.local.get as Mock).mockResolvedValue({ bookmarks: mockBookmarks, syncError: false });
 
     const result = await getLocalStorage(['bookmarks', 'syncError']);
     expect(result.bookmarks).toEqual(mockBookmarks);
@@ -37,7 +37,7 @@ describe('localStorage (chrome.storage.local)', () => {
   });
 
   it('setLocalStorage calls chrome.storage.local.set', async () => {
-    const partial: Partial<LocalStorage> = { syncError: true, syncErrorTime: 1234567890 };
+    const partial: Partial<LocalStorage> = { syncError: true };
     await setLocalStorage(partial);
     expect(chrome.storage.local.set).toHaveBeenCalledWith(partial);
   });

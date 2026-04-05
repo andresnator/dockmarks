@@ -142,7 +142,7 @@
 
 /* DOCKMARKS watermark behind content */
 [data-theme="terminal"] #main-content::before {
-  content: 'DOCKMARKS';
+  content: 'Dockmarks';
   position: fixed;
   top: 50%;
   left: 50%;

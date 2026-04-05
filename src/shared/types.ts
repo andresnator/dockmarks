@@ -18,7 +18,6 @@ export interface LocalStorage {
   bookmarks: Bookmark[];
   lastSyncHash: string;
   syncError: boolean;
-  syncErrorTime: number;
 }
 
 export type MessageType =

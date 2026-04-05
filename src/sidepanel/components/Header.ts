@@ -33,7 +33,8 @@ export class Header {
   private render(): string {
     return `
       <div class="header-logo">
-        <span class="header-title">DOCKMARKS</span>
+        <img class="header-logo-img" src="${chrome.runtime.getURL('icons/pushpin-20.png')}" alt="Dockmarks logo" />
+        <span class="header-title">Dockmarks</span>
       </div>
       <div class="header-search">
         <input

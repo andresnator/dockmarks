@@ -44,8 +44,8 @@ const tabBar = new TabBar(tabbarEl, {
 });
 
 const grid = new BookmarkGrid(gridContainer, {
-  onBookmarkUsed: (id) => {
-    recordUsage(id);
+  onBookmarkUsed: async (id) => {
+    await recordUsage(id);
     updateGrid();
   },
 });
@@ -71,7 +71,7 @@ async function init(): Promise<void> {
   const settings = await getSyncStorage(['jsonUrl', 'lastSyncTime']);
 
   // 3. Load cached bookmarks
-  const cached = await getLocalStorage(['bookmarks', 'syncError', 'syncErrorTime']);
+  const cached = await getLocalStorage(['bookmarks', 'syncError']);
   if (cached.bookmarks && cached.bookmarks.length > 0) {
     allBookmarks = cached.bookmarks;
   }
@@ -102,7 +102,7 @@ async function init(): Promise<void> {
 
 // ---- Update grid ----
 
-function updateGrid(): void {
+async function updateGrid(): Promise<void> {
   let visible = allBookmarks;
 
   // Apply tab filter
@@ -110,7 +110,7 @@ function updateGrid(): void {
     visible = visible.filter((b) => b.section === activeSection);
   } else {
     // "All" tab: recently used first, then alphabetical
-    const recentIds = getRecentIds();
+    const recentIds = await getRecentIds();
     const recentSet = new Set(recentIds);
     const recentItems = recentIds
       .map((id) => visible.find((b) => b.id === id))
