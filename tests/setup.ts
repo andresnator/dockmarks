@@ -15,6 +15,7 @@ const chromeMock = {
   },
   runtime: {
     sendMessage: vi.fn().mockResolvedValue(undefined),
+    getURL: vi.fn((path: string) => `chrome-extension://test-id/${path}`),
     onMessage: {
       addListener: vi.fn(),
     },
