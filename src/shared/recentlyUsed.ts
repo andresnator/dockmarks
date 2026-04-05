@@ -1,17 +1,14 @@
-const RECENT_KEY = 'dockmarks-recent';
+const STORAGE_KEY = 'recentlyUsedIds';
 const MAX_RECENT = 10;
 
-export function getRecentIds(): string[] {
-  try {
-    const raw = localStorage.getItem(RECENT_KEY);
-    return raw ? (JSON.parse(raw) as string[]) : [];
-  } catch {
-    return [];
-  }
+export async function getRecentIds(): Promise<string[]> {
+  const result = await chrome.storage.local.get([STORAGE_KEY]);
+  const ids = result[STORAGE_KEY];
+  return Array.isArray(ids) ? ids : [];
 }
 
-export function recordUsage(id: string): void {
-  const recent = getRecentIds().filter((r) => r !== id);
+export async function recordUsage(id: string): Promise<void> {
+  const recent = (await getRecentIds()).filter((r) => r !== id);
   recent.unshift(id);
-  localStorage.setItem(RECENT_KEY, JSON.stringify(recent.slice(0, MAX_RECENT)));
+  await chrome.storage.local.set({ [STORAGE_KEY]: recent.slice(0, MAX_RECENT) });
 }
