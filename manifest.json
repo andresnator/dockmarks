@@ -1,9 +1,12 @@
 {
   "manifest_version": 3,
   "name": "Dockmarks",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Corporate bookmark side panel — instant access to your team's links",
   "permissions": ["sidePanel", "storage", "alarms"],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'"
+  },
   "background": {
     "service_worker": "service-worker.js",
     "type": "module"
