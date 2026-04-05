@@ -37,7 +37,7 @@ describe('localStorage (chrome.storage.local)', () => {
   });
 
   it('setLocalStorage calls chrome.storage.local.set', async () => {
-    const partial: Partial<LocalStorage> = { syncError: true, syncErrorTime: 1234567890 };
+    const partial: Partial<LocalStorage> = { syncError: true };
     await setLocalStorage(partial);
     expect(chrome.storage.local.set).toHaveBeenCalledWith(partial);
   });

@@ -41,7 +41,7 @@ Each component is a class that owns a DOM element passed in at construction. No 
 ### Storage split
 
 - `chrome.storage.sync` — user settings: `jsonUrl`, `theme`, `lastSyncTime` (synced across devices)
-- `chrome.storage.local` — cached data: `bookmarks[]`, `lastSyncHash`, `syncError`, `syncErrorTime` (device-local)
+- `chrome.storage.local` — cached data: `bookmarks[]`, `lastSyncHash`, `syncError` (device-local)
 
 ### Build output
 

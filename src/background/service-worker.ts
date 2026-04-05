@@ -64,13 +64,11 @@ async function fetchAndCache(): Promise<void> {
         bookmarks,
         lastSyncHash: newHash,
         syncError: false,
-        syncErrorTime: 0,
       });
     } else {
       // Content unchanged — only clear error flags
       await setLocalStorage({
         syncError: false,
-        syncErrorTime: 0,
       });
     }
 
@@ -84,7 +82,6 @@ async function fetchAndCache(): Promise<void> {
     // Network error or HTTP error — preserve cache, set error flag
     await setLocalStorage({
       syncError: true,
-      syncErrorTime: Date.now(),
     });
 
     // Still notify sidepanel so it can update the error indicator
