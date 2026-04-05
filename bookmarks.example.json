@@ -1,85 +1,542 @@
 [
   {
+    "id": "github",
+    "name": "GitHub",
+    "url": "https://github.com",
+    "description": "Source control, pull requests, and developer collaboration.",
+    "logo": "https://www.google.com/s2/favicons?domain=github.com&sz=128",
+    "section": "ENGINEERING",
+    "tags": ["git", "pull-requests", "code-review"]
+  },
+  {
+    "id": "gitlab",
+    "name": "GitLab",
+    "url": "https://gitlab.com",
+    "description": "DevSecOps platform for repos, CI, and deployments.",
+    "logo": "https://www.google.com/s2/favicons?domain=gitlab.com&sz=128",
+    "section": "ENGINEERING",
+    "tags": ["git", "ci-cd", "devsecops"]
+  },
+  {
+    "id": "bitbucket",
+    "name": "Bitbucket",
+    "url": "https://bitbucket.org",
+    "description": "Git hosting for teams using the Atlassian stack.",
+    "logo": "https://www.google.com/s2/favicons?domain=bitbucket.org&sz=128",
+    "section": "ENGINEERING",
+    "tags": ["git", "repositories", "atlassian"]
+  },
+  {
     "id": "jira",
     "name": "Jira",
-    "url": "https://yourcompany.atlassian.net",
-    "description": "Issue tracker and project management",
-    "logo": "https://yourcompany.atlassian.net/favicon.ico",
-    "section": "TOOLS",
-    "tags": ["issues", "sprints", "tracking"]
+    "url": "https://www.atlassian.com/software/jira",
+    "description": "Issue tracking, sprint planning, and delivery workflows.",
+    "logo": "https://www.google.com/s2/favicons?domain=atlassian.com&sz=128",
+    "section": "ENGINEERING",
+    "tags": ["issues", "sprints", "agile"]
+  },
+  {
+    "id": "linear",
+    "name": "Linear",
+    "url": "https://linear.app",
+    "description": "Fast issue tracking for product and engineering teams.",
+    "logo": "https://www.google.com/s2/favicons?domain=linear.app&sz=128",
+    "section": "ENGINEERING",
+    "tags": ["issues", "planning", "productivity"]
+  },
+  {
+    "id": "postman",
+    "name": "Postman",
+    "url": "https://www.postman.com",
+    "description": "API design, testing, collections, and collaboration.",
+    "logo": "https://www.google.com/s2/favicons?domain=postman.com&sz=128",
+    "section": "ENGINEERING",
+    "tags": ["api", "testing", "collections"]
+  },
+  {
+    "id": "docker-hub",
+    "name": "Docker Hub",
+    "url": "https://hub.docker.com",
+    "description": "Container registry for images, teams, and pipelines.",
+    "logo": "https://www.google.com/s2/favicons?domain=docker.com&sz=128",
+    "section": "ENGINEERING",
+    "tags": ["containers", "images", "registry"]
+  },
+  {
+    "id": "circleci",
+    "name": "CircleCI",
+    "url": "https://circleci.com",
+    "description": "Continuous integration and delivery for modern teams.",
+    "logo": "https://www.google.com/s2/favicons?domain=circleci.com&sz=128",
+    "section": "ENGINEERING",
+    "tags": ["ci", "pipelines", "automation"]
+  },
+  {
+    "id": "jenkins",
+    "name": "Jenkins",
+    "url": "https://www.jenkins.io",
+    "description": "Open source automation server for builds and releases.",
+    "logo": "https://www.google.com/s2/favicons?domain=jenkins.io&sz=128",
+    "section": "ENGINEERING",
+    "tags": ["ci", "builds", "automation"]
+  },
+  {
+    "id": "buildkite",
+    "name": "Buildkite",
+    "url": "https://buildkite.com",
+    "description": "CI pipelines that run on your own infrastructure.",
+    "logo": "https://www.google.com/s2/favicons?domain=buildkite.com&sz=128",
+    "section": "ENGINEERING",
+    "tags": ["ci-cd", "agents", "pipelines"]
   },
   {
     "id": "confluence",
     "name": "Confluence",
-    "url": "https://yourcompany.atlassian.net/wiki",
-    "description": "Team documentation and knowledge base",
-    "logo": "https://yourcompany.atlassian.net/wiki/favicon.ico",
-    "section": "WIKIS",
-    "tags": ["docs", "wiki", "knowledge"]
+    "url": "https://www.atlassian.com/software/confluence",
+    "description": "Team documentation, runbooks, and knowledge sharing.",
+    "logo": "https://www.google.com/s2/favicons?domain=atlassian.com&sz=128",
+    "section": "COLLABORATION",
+    "tags": ["docs", "wiki", "knowledge-base"]
   },
   {
-    "id": "github",
-    "name": "GitHub",
-    "url": "https://github.com/yourcompany",
-    "description": "Source code and pull requests",
-    "logo": "https://github.com/favicon.ico",
-    "section": "TOOLS",
-    "tags": ["code", "git", "prs"]
+    "id": "notion",
+    "name": "Notion",
+    "url": "https://www.notion.so",
+    "description": "Workspace for docs, project notes, and team hubs.",
+    "logo": "https://www.google.com/s2/favicons?domain=notion.so&sz=128",
+    "section": "COLLABORATION",
+    "tags": ["docs", "notes", "workspace"]
+  },
+  {
+    "id": "slack",
+    "name": "Slack",
+    "url": "https://slack.com",
+    "description": "Team messaging, channels, and operational alerts.",
+    "logo": "https://www.google.com/s2/favicons?domain=slack.com&sz=128",
+    "section": "COLLABORATION",
+    "tags": ["chat", "alerts", "collaboration"]
   },
   {
     "id": "figma",
     "name": "Figma",
-    "url": "https://figma.com",
-    "description": "Design system and UI mockups",
-    "section": "TOOLS",
-    "tags": ["design", "ui", "mockups"]
+    "url": "https://www.figma.com",
+    "description": "Product design, prototyping, and design systems.",
+    "logo": "https://www.google.com/s2/favicons?domain=figma.com&sz=128",
+    "section": "COLLABORATION",
+    "tags": ["design", "ui", "prototype"]
+  },
+  {
+    "id": "miro",
+    "name": "Miro",
+    "url": "https://miro.com",
+    "description": "Visual collaboration for planning, mapping, and workshops.",
+    "logo": "https://www.google.com/s2/favicons?domain=miro.com&sz=128",
+    "section": "COLLABORATION",
+    "tags": ["whiteboard", "planning", "workshops"]
+  },
+  {
+    "id": "loom",
+    "name": "Loom",
+    "url": "https://www.loom.com",
+    "description": "Async video messaging for demos, support, and handoffs.",
+    "logo": "https://www.google.com/s2/favicons?domain=loom.com&sz=128",
+    "section": "COLLABORATION",
+    "tags": ["video", "async", "handoff"]
+  },
+  {
+    "id": "asana",
+    "name": "Asana",
+    "url": "https://asana.com",
+    "description": "Cross-functional planning and task execution at scale.",
+    "logo": "https://www.google.com/s2/favicons?domain=asana.com&sz=128",
+    "section": "COLLABORATION",
+    "tags": ["tasks", "planning", "operations"]
+  },
+  {
+    "id": "trello",
+    "name": "Trello",
+    "url": "https://trello.com",
+    "description": "Kanban-style boards for lightweight project coordination.",
+    "logo": "https://www.google.com/s2/favicons?domain=trello.com&sz=128",
+    "section": "COLLABORATION",
+    "tags": ["kanban", "boards", "tasks"]
+  },
+  {
+    "id": "zendesk",
+    "name": "Zendesk",
+    "url": "https://www.zendesk.com",
+    "description": "Support operations, ticketing, and help center workflows.",
+    "logo": "https://www.google.com/s2/favicons?domain=zendesk.com&sz=128",
+    "section": "COLLABORATION",
+    "tags": ["support", "tickets", "customers"]
+  },
+  {
+    "id": "intercom",
+    "name": "Intercom",
+    "url": "https://www.intercom.com",
+    "description": "Customer messaging, onboarding, and support automation.",
+    "logo": "https://www.google.com/s2/favicons?domain=intercom.com&sz=128",
+    "section": "COLLABORATION",
+    "tags": ["support", "messaging", "customer-success"]
   },
   {
     "id": "grafana",
     "name": "Grafana",
-    "url": "https://grafana.yourcompany.com",
-    "description": "Infrastructure and application dashboards",
-    "section": "DASHBOARDS",
-    "tags": ["monitoring", "metrics", "alerts"]
+    "url": "https://grafana.com",
+    "description": "Dashboards for metrics, logs, traces, and alerting.",
+    "logo": "https://www.google.com/s2/favicons?domain=grafana.com&sz=128",
+    "section": "TELEMETRY",
+    "tags": ["metrics", "dashboards", "observability"]
   },
   {
     "id": "datadog",
     "name": "Datadog",
     "url": "https://app.datadoghq.com",
-    "description": "APM, logs, and infrastructure monitoring",
-    "section": "DASHBOARDS",
+    "description": "Unified infrastructure, APM, logs, and cloud monitoring.",
+    "logo": "https://www.google.com/s2/favicons?domain=datadoghq.com&sz=128",
+    "section": "TELEMETRY",
     "tags": ["apm", "logs", "monitoring"]
   },
   {
-    "id": "notion",
-    "name": "Notion",
-    "url": "https://notion.so/yourcompany",
-    "description": "Team wiki and project notes",
-    "section": "WIKIS",
-    "tags": ["notes", "wiki", "docs"]
+    "id": "new-relic",
+    "name": "New Relic",
+    "url": "https://newrelic.com",
+    "description": "Full-stack observability with telemetry and incident context.",
+    "logo": "https://www.google.com/s2/favicons?domain=newrelic.com&sz=128",
+    "section": "TELEMETRY",
+    "tags": ["apm", "telemetry", "full-stack"]
   },
   {
-    "id": "staging",
-    "name": "Staging",
-    "url": "https://staging.yourcompany.com",
-    "description": "Staging environment",
-    "section": "SITES",
-    "tags": ["staging", "env"]
+    "id": "sentry",
+    "name": "Sentry",
+    "url": "https://sentry.io",
+    "description": "Error tracking, performance monitoring, and release health.",
+    "logo": "https://www.google.com/s2/favicons?domain=sentry.io&sz=128",
+    "section": "TELEMETRY",
+    "tags": ["errors", "performance", "releases"]
   },
   {
-    "id": "production",
-    "name": "Production",
-    "url": "https://yourcompany.com",
-    "description": "Production environment",
-    "section": "SITES",
-    "tags": ["prod", "env"]
+    "id": "splunk",
+    "name": "Splunk",
+    "url": "https://www.splunk.com",
+    "description": "Operational analytics for logs, events, and security data.",
+    "logo": "https://www.google.com/s2/favicons?domain=splunk.com&sz=128",
+    "section": "TELEMETRY",
+    "tags": ["logs", "analytics", "events"]
   },
   {
-    "id": "admin",
-    "name": "Admin Panel",
-    "url": "https://admin.yourcompany.com",
-    "description": "Internal admin dashboard",
-    "section": "SITES",
-    "tags": ["admin", "internal"]
+    "id": "elastic",
+    "name": "Elastic",
+    "url": "https://www.elastic.co",
+    "description": "Search, logs, security analytics, and observability tooling.",
+    "logo": "https://www.google.com/s2/favicons?domain=elastic.co&sz=128",
+    "section": "TELEMETRY",
+    "tags": ["search", "logs", "observability"]
+  },
+  {
+    "id": "honeycomb",
+    "name": "Honeycomb",
+    "url": "https://www.honeycomb.io",
+    "description": "High-cardinality observability for debugging complex systems.",
+    "logo": "https://www.google.com/s2/favicons?domain=honeycomb.io&sz=128",
+    "section": "TELEMETRY",
+    "tags": ["tracing", "debugging", "observability"]
+  },
+  {
+    "id": "amplitude",
+    "name": "Amplitude",
+    "url": "https://amplitude.com",
+    "description": "Product analytics for funnels, retention, and experimentation.",
+    "logo": "https://www.google.com/s2/favicons?domain=amplitude.com&sz=128",
+    "section": "TELEMETRY",
+    "tags": ["product-analytics", "funnels", "retention"]
+  },
+  {
+    "id": "mixpanel",
+    "name": "Mixpanel",
+    "url": "https://mixpanel.com",
+    "description": "Event analytics for product usage and growth teams.",
+    "logo": "https://www.google.com/s2/favicons?domain=mixpanel.com&sz=128",
+    "section": "TELEMETRY",
+    "tags": ["events", "analytics", "growth"]
+  },
+  {
+    "id": "pagerduty",
+    "name": "PagerDuty",
+    "url": "https://www.pagerduty.com",
+    "description": "On-call management and incident response automation.",
+    "logo": "https://www.google.com/s2/favicons?domain=pagerduty.com&sz=128",
+    "section": "TELEMETRY",
+    "tags": ["incidents", "on-call", "alerts"]
+  },
+  {
+    "id": "okta",
+    "name": "Okta",
+    "url": "https://www.okta.com",
+    "description": "Identity, SSO, and access management for workforce apps.",
+    "logo": "https://www.google.com/s2/favicons?domain=okta.com&sz=128",
+    "section": "SECURITY",
+    "tags": ["identity", "sso", "access"]
+  },
+  {
+    "id": "auth0",
+    "name": "Auth0",
+    "url": "https://auth0.com",
+    "description": "Authentication, authorization, and customer identity.",
+    "logo": "https://www.google.com/s2/favicons?domain=auth0.com&sz=128",
+    "section": "SECURITY",
+    "tags": ["authentication", "identity", "auth"]
+  },
+  {
+    "id": "1password",
+    "name": "1Password",
+    "url": "https://1password.com",
+    "description": "Secrets, credentials, and secure access for teams.",
+    "logo": "https://www.google.com/s2/favicons?domain=1password.com&sz=128",
+    "section": "SECURITY",
+    "tags": ["passwords", "secrets", "vault"]
+  },
+  {
+    "id": "snyk",
+    "name": "Snyk",
+    "url": "https://snyk.io",
+    "description": "Developer security for code, containers, and dependencies.",
+    "logo": "https://www.google.com/s2/favicons?domain=snyk.io&sz=128",
+    "section": "SECURITY",
+    "tags": ["vulnerabilities", "dependencies", "containers"]
+  },
+  {
+    "id": "crowdstrike",
+    "name": "CrowdStrike",
+    "url": "https://www.crowdstrike.com",
+    "description": "Endpoint protection, threat intel, and security operations.",
+    "logo": "https://www.google.com/s2/favicons?domain=crowdstrike.com&sz=128",
+    "section": "SECURITY",
+    "tags": ["endpoint", "soc", "threat-detection"]
+  },
+  {
+    "id": "wiz",
+    "name": "Wiz",
+    "url": "https://www.wiz.io",
+    "description": "Cloud security posture management and risk visibility.",
+    "logo": "https://www.google.com/s2/favicons?domain=wiz.io&sz=128",
+    "section": "SECURITY",
+    "tags": ["cloud-security", "cspm", "risk"]
+  },
+  {
+    "id": "sonarqube",
+    "name": "SonarQube",
+    "url": "https://www.sonarsource.com/products/sonarqube/",
+    "description": "Code quality and secure coding analysis in CI.",
+    "logo": "https://www.google.com/s2/favicons?domain=sonarsource.com&sz=128",
+    "section": "SECURITY",
+    "tags": ["code-quality", "static-analysis", "security"]
+  },
+  {
+    "id": "zscaler",
+    "name": "Zscaler",
+    "url": "https://www.zscaler.com",
+    "description": "Zero trust access and secure internet gateway services.",
+    "logo": "https://www.google.com/s2/favicons?domain=zscaler.com&sz=128",
+    "section": "SECURITY",
+    "tags": ["zero-trust", "access", "network-security"]
+  },
+  {
+    "id": "duo",
+    "name": "Duo Security",
+    "url": "https://duo.com",
+    "description": "MFA and device trust for secure workforce access.",
+    "logo": "https://www.google.com/s2/favicons?domain=duo.com&sz=128",
+    "section": "SECURITY",
+    "tags": ["mfa", "device-trust", "identity"]
+  },
+  {
+    "id": "prisma-cloud",
+    "name": "Prisma Cloud",
+    "url": "https://www.paloaltonetworks.com/prisma/cloud",
+    "description": "Cloud-native application protection across infrastructure and code.",
+    "logo": "https://www.google.com/s2/favicons?domain=paloaltonetworks.com&sz=128",
+    "section": "SECURITY",
+    "tags": ["cnapp", "cloud-security", "compliance"]
+  },
+  {
+    "id": "aws",
+    "name": "AWS",
+    "url": "https://aws.amazon.com",
+    "description": "Core cloud platform for compute, storage, and managed services.",
+    "logo": "https://www.google.com/s2/favicons?domain=amazon.com&sz=128",
+    "section": "CLOUD",
+    "tags": ["cloud", "infrastructure", "compute"]
+  },
+  {
+    "id": "google-cloud",
+    "name": "Google Cloud",
+    "url": "https://cloud.google.com",
+    "description": "Cloud infrastructure, data, AI, and developer services.",
+    "logo": "https://www.google.com/s2/favicons?domain=google.com&sz=128",
+    "section": "CLOUD",
+    "tags": ["cloud", "data", "ai"]
+  },
+  {
+    "id": "azure",
+    "name": "Azure",
+    "url": "https://azure.microsoft.com",
+    "description": "Microsoft cloud platform for enterprise workloads.",
+    "logo": "https://www.google.com/s2/favicons?domain=microsoft.com&sz=128",
+    "section": "CLOUD",
+    "tags": ["cloud", "enterprise", "infrastructure"]
+  },
+  {
+    "id": "cloudflare",
+    "name": "Cloudflare",
+    "url": "https://www.cloudflare.com",
+    "description": "Edge network for CDN, security, DNS, and performance.",
+    "logo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
+    "section": "CLOUD",
+    "tags": ["cdn", "dns", "edge"]
+  },
+  {
+    "id": "vercel",
+    "name": "Vercel",
+    "url": "https://vercel.com",
+    "description": "Frontend cloud for deploying modern web applications.",
+    "logo": "https://www.google.com/s2/favicons?domain=vercel.com&sz=128",
+    "section": "CLOUD",
+    "tags": ["frontend", "deployments", "hosting"]
+  },
+  {
+    "id": "netlify",
+    "name": "Netlify",
+    "url": "https://www.netlify.com",
+    "description": "Composable web platform with deploy previews and edge functions.",
+    "logo": "https://www.google.com/s2/favicons?domain=netlify.com&sz=128",
+    "section": "CLOUD",
+    "tags": ["hosting", "edge", "frontend"]
+  },
+  {
+    "id": "kubernetes",
+    "name": "Kubernetes",
+    "url": "https://kubernetes.io",
+    "description": "Container orchestration standard for cloud-native platforms.",
+    "logo": "https://www.google.com/s2/favicons?domain=kubernetes.io&sz=128",
+    "section": "CLOUD",
+    "tags": ["containers", "orchestration", "platform"]
+  },
+  {
+    "id": "render",
+    "name": "Render",
+    "url": "https://render.com",
+    "description": "Managed cloud platform for apps, databases, and jobs.",
+    "logo": "https://www.google.com/s2/favicons?domain=render.com&sz=128",
+    "section": "CLOUD",
+    "tags": ["hosting", "managed", "apps"]
+  },
+  {
+    "id": "fly-io",
+    "name": "Fly.io",
+    "url": "https://fly.io",
+    "description": "Global app deployment close to users at the edge.",
+    "logo": "https://www.google.com/s2/favicons?domain=fly.io&sz=128",
+    "section": "CLOUD",
+    "tags": ["edge", "deployment", "global"]
+  },
+  {
+    "id": "mongodb-atlas",
+    "name": "MongoDB Atlas",
+    "url": "https://www.mongodb.com/atlas",
+    "description": "Managed MongoDB platform across public clouds.",
+    "logo": "https://www.google.com/s2/favicons?domain=mongodb.com&sz=128",
+    "section": "CLOUD",
+    "tags": ["database", "managed", "cloud"]
+  },
+  {
+    "id": "snowflake",
+    "name": "Snowflake",
+    "url": "https://www.snowflake.com",
+    "description": "Cloud data platform for warehousing, apps, and sharing.",
+    "logo": "https://www.google.com/s2/favicons?domain=snowflake.com&sz=128",
+    "section": "DATA",
+    "tags": ["warehouse", "analytics", "data-platform"]
+  },
+  {
+    "id": "databricks",
+    "name": "Databricks",
+    "url": "https://www.databricks.com",
+    "description": "Lakehouse platform for data engineering, analytics, and AI.",
+    "logo": "https://www.google.com/s2/favicons?domain=databricks.com&sz=128",
+    "section": "DATA",
+    "tags": ["lakehouse", "spark", "ai"]
+  },
+  {
+    "id": "looker",
+    "name": "Looker",
+    "url": "https://cloud.google.com/looker",
+    "description": "Business intelligence and modeled analytics for teams.",
+    "logo": "https://www.google.com/s2/favicons?domain=google.com&sz=128",
+    "section": "DATA",
+    "tags": ["bi", "analytics", "dashboards"]
+  },
+  {
+    "id": "tableau",
+    "name": "Tableau",
+    "url": "https://www.tableau.com",
+    "description": "Visual analytics and executive dashboards.",
+    "logo": "https://www.google.com/s2/favicons?domain=tableau.com&sz=128",
+    "section": "DATA",
+    "tags": ["visualization", "bi", "dashboards"]
+  },
+  {
+    "id": "segment",
+    "name": "Segment",
+    "url": "https://segment.com",
+    "description": "Customer data infrastructure for event pipelines.",
+    "logo": "https://www.google.com/s2/favicons?domain=segment.com&sz=128",
+    "section": "DATA",
+    "tags": ["customer-data", "events", "pipelines"]
+  },
+  {
+    "id": "dbt-cloud",
+    "name": "dbt Cloud",
+    "url": "https://www.getdbt.com/product/dbt-cloud",
+    "description": "Analytics engineering workflows and SQL transformations.",
+    "logo": "https://www.google.com/s2/favicons?domain=getdbt.com&sz=128",
+    "section": "DATA",
+    "tags": ["transformations", "sql", "analytics-engineering"]
+  },
+  {
+    "id": "supabase",
+    "name": "Supabase",
+    "url": "https://supabase.com",
+    "description": "Postgres, auth, storage, and realtime backend services.",
+    "logo": "https://www.google.com/s2/favicons?domain=supabase.com&sz=128",
+    "section": "DATA",
+    "tags": ["postgres", "backend", "realtime"]
+  },
+  {
+    "id": "planetscale",
+    "name": "PlanetScale",
+    "url": "https://planetscale.com",
+    "description": "Serverless MySQL platform for scalable application data.",
+    "logo": "https://www.google.com/s2/favicons?domain=planetscale.com&sz=128",
+    "section": "DATA",
+    "tags": ["mysql", "serverless", "database"]
+  },
+  {
+    "id": "redis-cloud",
+    "name": "Redis Cloud",
+    "url": "https://redis.io/cloud/",
+    "description": "Managed Redis for caching, queues, and real-time apps.",
+    "logo": "https://www.google.com/s2/favicons?domain=redis.io&sz=128",
+    "section": "DATA",
+    "tags": ["cache", "realtime", "database"]
+  },
+  {
+    "id": "posthog",
+    "name": "PostHog",
+    "url": "https://posthog.com",
+    "description": "Product analytics, feature flags, and session replay.",
+    "logo": "https://www.google.com/s2/favicons?domain=posthog.com&sz=128",
+    "section": "DATA",
+    "tags": ["product-analytics", "feature-flags", "session-replay"]
   }
 ]

@@ -56,9 +56,9 @@ body {
 }
 
 .header-title {
-  font-family: "Bitcount Single Ink", var(--font-family);
+  font-family: "Quantico", sans-serif;
   font-size: var(--font-size-title);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.05em;
   color: var(--color-text);
   white-space: nowrap;
@@ -414,7 +414,7 @@ body {
   background: #111;
 }
 .theme-card[data-theme-preview="terminal"] .preview-block {
-  background: #00FF41;
+  background: #ffffff;
 }
 
 .theme-card-label {
