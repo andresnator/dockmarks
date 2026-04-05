@@ -9,22 +9,22 @@
   --color-text: #ffffff;
   --color-text-muted: #888888;
   --color-border: rgba(255, 255, 255, 0.1);
-  --color-accent: #00FF41;
-  --color-hover-bg: rgba(0, 255, 65, 0.05);
+  --color-accent: #ffffff;
+  --color-hover-bg: rgba(255, 255, 255, 0.05);
   --color-input-bg: #111111;
   --color-card-bg: #111111;
   --color-card-border: rgba(255, 255, 255, 0.08);
   --color-card-hover-bg: #161616;
   --color-tooltip-bg: #000000;
-  --color-tooltip-text: #00FF41;
-  --color-tooltip-border: #00FF41;
+  --color-tooltip-text: #ffffff;
+  --color-tooltip-border: #ffffff;
   --color-success: #00FF41;
   --color-warning: #EF9F27;
   --color-btn-text: #000000;
-  --color-scrollbar: #00FF41;
+  --color-scrollbar: #ffffff;
   --color-scrollbar-track: transparent;
-  --color-accent-hover-bg: rgba(0, 255, 65, 0.08);
-  --color-accent-30: rgba(0, 255, 65, 0.3);
+  --color-accent-hover-bg: rgba(255, 255, 255, 0.08);
+  --color-accent-30: rgba(255, 255, 255, 0.3);
 
   /* Typography */
   --font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
@@ -151,7 +151,7 @@
   font-size: 48px;
   font-weight: 900;
   letter-spacing: 0.15em;
-  color: rgba(0, 255, 65, 0.04);
+  color: rgba(255, 255, 255, 0.04);
   pointer-events: none;
   white-space: nowrap;
   z-index: 0;
