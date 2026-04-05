@@ -1,6 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { hashContent, validateBookmarks, fetchBookmarks } from '../../src/shared/bookmarks';
-import type { Bookmark } from '../../src/shared/types';
 
 describe('hashContent', () => {
   it('returns a consistent hex string for the same input', async () => {
@@ -70,7 +69,7 @@ describe('fetchBookmarks', () => {
     const mockData = {
       bookmarks: [{ id: '1', name: 'Test', url: 'https://t.com', section: 'Tools' }],
     };
-    global.fetch = vi.fn().mockResolvedValue({
+    globalThis.fetch = vi.fn().mockResolvedValue({
       ok: true,
       text: () => Promise.resolve(JSON.stringify(mockData)),
     } as Response);
@@ -81,7 +80,7 @@ describe('fetchBookmarks', () => {
   });
 
   it('throws on HTTP error (4XX/5XX)', async () => {
-    global.fetch = vi.fn().mockResolvedValue({
+    globalThis.fetch = vi.fn().mockResolvedValue({
       ok: false,
       status: 404,
     } as Response);
@@ -90,7 +89,7 @@ describe('fetchBookmarks', () => {
   });
 
   it('throws on network failure', async () => {
-    global.fetch = vi.fn().mockRejectedValue(new TypeError('Failed to fetch'));
+    globalThis.fetch = vi.fn().mockRejectedValue(new TypeError('Failed to fetch'));
 
     await expect(fetchBookmarks('https://example.com/bookmarks.json')).rejects.toThrow();
   });
