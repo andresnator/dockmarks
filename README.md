@@ -10,7 +10,7 @@ Chrome extension (MV3) — corporate bookmark side panel that loads links from a
 - Section-based navigation (tabs per category)
 - Recently used bookmarks sorted first
 - Background auto-sync via `chrome.alarms`
-- Two themes: **Neutral** (light) and **Terminal** (dark/green)
+- Neutral appearance (clean, light)
 
 ## Development
 
