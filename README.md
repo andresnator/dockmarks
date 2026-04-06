@@ -1,4 +1,4 @@
-# Dockmarks
+# <img src="public/icons/32.png" alt="icon" width="24" /> Dockmarks
 
 <p align="center">
   <img src="assets/banner.png" alt="Dockmarks — Manage your tech stack, find and access instantly, sync with your team" width="100%" />
