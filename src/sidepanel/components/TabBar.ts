@@ -49,7 +49,6 @@ export class TabBar {
 
   private setActive(section: string | null): void {
     this.activeSection = section;
-    // Re-render to update bracket notation and active class
     const tabs = [
       'All',
       ...Array.from(this.el.querySelectorAll<HTMLButtonElement>('.tab-btn'))
