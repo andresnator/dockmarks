@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Corporate bookmark side panel for Chrome",
   "type": "module",
+  "overrides": {
+    "esbuild": "^0.25.0"
+  },
   "scripts": {
     "dev": "vite build --watch",
     "build": "vite build",
