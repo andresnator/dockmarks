@@ -1,0 +1,9 @@
+{
+  "id": "kebab-case-id",
+  "name": "Display Name",
+  "url": "https://example.com",
+  "description": "One sentence, present tense, max 80 characters.",
+  "logo": "https://www.google.com/s2/favicons?domain=example.com&sz=128",
+  "section": "SECTION_NAME",
+  "tags": ["tag-one", "tag-two", "tag-three"]
+}
