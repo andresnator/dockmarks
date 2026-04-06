@@ -82,19 +82,13 @@ describe('TabBar', () => {
     expect(document.getElementById('tabbar-wrapper')).toBeNull();
   });
 
-  it('wraps active tab label in brackets for terminal theme', () => {
-    document.documentElement.setAttribute('data-theme', 'terminal');
-
+  it('renders tab labels in uppercase', () => {
     const tabbar = new TabBar(container, { onTabChange: () => {} });
-    tabbar.update(makeBookmarks(['Cloud']));
+    tabbar.update(makeBookmarks(['Cloud', 'Data']));
 
-    // Click ALL to make it active
-    const allBtn = container.querySelector('.tab-btn') as HTMLButtonElement;
-    allBtn.click();
-
-    const active = container.querySelector('.tab-btn.active') as HTMLButtonElement;
-    expect(active.textContent).toBe('[ALL]');
-
-    document.documentElement.removeAttribute('data-theme');
+    const labels = Array.from(container.querySelectorAll('.tab-btn')).map(
+      (btn) => btn.textContent,
+    );
+    expect(labels).toEqual(['ALL', 'CLOUD', 'DATA']);
   });
 });

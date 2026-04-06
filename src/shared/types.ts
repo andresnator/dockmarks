@@ -10,7 +10,6 @@ export interface Bookmark {
 
 export interface SyncStorage {
   jsonUrl: string;
-  theme: 'neutral' | 'terminal';
   lastSyncTime: number;
 }
 
@@ -24,4 +23,4 @@ export type MessageType =
   | { type: 'SYNC_COMPLETE' }
   | { type: 'SYNC_NOW' };
 
-export type Theme = 'neutral' | 'terminal';
+export type Theme = 'neutral';

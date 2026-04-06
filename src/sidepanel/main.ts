@@ -6,7 +6,7 @@ import { Header } from './components/Header';
 import { TabBar } from './components/TabBar';
 import { BookmarkGrid } from './components/BookmarkGrid';
 import { SettingsView } from './components/SettingsView';
-import type { Bookmark, MessageType, Theme } from '../shared/types';
+import type { Bookmark, MessageType } from '../shared/types';
 
 // ---- State ----
 
@@ -52,20 +52,11 @@ const grid = new BookmarkGrid(gridContainer, {
 
 let settingsView: SettingsView | null = null;
 
-// Add terminal footer to DOM
-const terminalFooter = document.createElement('div');
-terminalFooter.className = 'terminal-footer';
-terminalFooter.innerHTML = `
-  <span>STATUS: ONLINE</span>
-  <span>ENCRYPTED_AES256</span>
-`;
-document.getElementById('app')!.appendChild(terminalFooter);
-
 // ---- Init ----
 
 async function init(): Promise<void> {
   // 1. Apply theme
-  await themeManager.load();
+  themeManager.apply();
 
   // 2. Load settings
   const settings = await getSyncStorage(['jsonUrl', 'lastSyncTime']);
@@ -179,10 +170,9 @@ async function renderSettings(): Promise<void> {
           isSyncing = false;
         });
       },
-      onThemeChange: async (theme: Theme) => {
-        await themeManager.set(theme);
-        header.updatePlaceholder(); // update placeholder for new theme
-        renderSettings(); // re-render with new theme labels
+      onThemeChange: async () => {
+        header.updatePlaceholder();
+        renderSettings();
       },
       themeManager,
     });
@@ -202,27 +192,25 @@ function showEmptyState(type: EmptyStateType): void {
   gridContainer.hidden = true;
   emptyStateEl.hidden = false;
 
-  const isTerminal = themeManager.get() === 'terminal';
-
   const messages: Record<EmptyStateType, { icon: string; title: string; subtitle: string }> = {
     'no-url': {
       icon: '⚙',
-      title: isTerminal ? 'NO_DATA_SOURCE_CONFIGURED' : 'No source configured',
+      title: 'No source configured',
       subtitle: 'Open settings ⚙ and enter your bookmarks JSON URL.',
     },
     'loading': {
       icon: '⟳',
-      title: isTerminal ? 'FETCHING_DATA...' : 'Loading bookmarks...',
+      title: 'Loading bookmarks...',
       subtitle: 'Fetching your bookmarks for the first time.',
     },
     'no-results': {
       icon: '◎',
-      title: isTerminal ? 'NO_MATCH_FOUND' : 'No results',
+      title: 'No results',
       subtitle: 'Try a different search term.',
     },
     'error': {
       icon: '⚠',
-      title: isTerminal ? 'CONNECTION_ERROR' : 'Could not load bookmarks',
+      title: 'Could not load bookmarks',
       subtitle: 'Check your URL and connection. Using cached data if available.',
     },
   };

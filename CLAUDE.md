@@ -31,7 +31,7 @@ Pure logic, no Chrome API calls except through typed wrappers:
 - `bookmarks.ts` — `fetchBookmarks()` (HTTP) and `hashContent()` (SHA-256 via WebCrypto)
 - `search.ts` — fuzzy-ish filter over `name`, `description`, `tags`
 - `recentlyUsed.ts` — persists and retrieves recently clicked bookmark IDs
-- `theme.ts` — `ThemeManager` class; reads/writes theme to sync storage and applies CSS class to `<body>`
+- `theme.ts` — `ThemeManager` class; always applies neutral theme to `<html>` via `data-theme` attribute
 - `types.ts` — all shared interfaces and types (`Bookmark`, `SyncStorage`, `LocalStorage`, `MessageType`, `Theme`)
 
 ### UI components (`src/sidepanel/components/`)
@@ -40,7 +40,7 @@ Each component is a class that owns a DOM element passed in at construction. No 
 
 ### Storage split
 
-- `chrome.storage.sync` — user settings: `jsonUrl`, `theme`, `lastSyncTime` (synced across devices)
+- `chrome.storage.sync` — user settings: `jsonUrl`, `lastSyncTime` (synced across devices)
 - `chrome.storage.local` — cached data: `bookmarks[]`, `lastSyncHash`, `syncError` (device-local)
 
 ### Build output

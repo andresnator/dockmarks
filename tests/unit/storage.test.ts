@@ -8,12 +8,11 @@ describe('syncStorage', () => {
   });
 
   it('getSyncStorage returns typed values', async () => {
-    const mockData: Partial<SyncStorage> = { jsonUrl: 'https://example.com/bookmarks.json', theme: 'neutral' };
+    const mockData: Partial<SyncStorage> = { jsonUrl: 'https://example.com/bookmarks.json' };
     (chrome.storage.sync.get as Mock).mockResolvedValue(mockData);
 
-    const result = await getSyncStorage(['jsonUrl', 'theme']);
+    const result = await getSyncStorage(['jsonUrl']);
     expect(result.jsonUrl).toBe('https://example.com/bookmarks.json');
-    expect(result.theme).toBe('neutral');
   });
 
   it('setSyncStorage calls chrome.storage.sync.set with correct args', async () => {

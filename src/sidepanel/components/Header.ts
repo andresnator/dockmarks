@@ -25,9 +25,7 @@ export class Header {
   }
 
   private getPlaceholder(): string {
-    return document.body.dataset['theme'] === 'terminal'
-      ? '$ search...'
-      : 'Search bookmarks...';
+    return 'Search bookmarks...';
   }
 
   private render(): string {
