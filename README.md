@@ -63,3 +63,7 @@ Open the side panel → click the gear icon ⚙ → enter your JSON URL → Save
 - Chrome MV3 (Side Panel API, Storage API, Alarms API)
 - Vitest for unit tests
 - No framework — vanilla DOM components
+
+## License
+
+[MIT](LICENSE)
