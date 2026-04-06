@@ -8,10 +8,40 @@ export class TabBar {
   private el: HTMLElement;
   private activeSection: string | null = null;
   private onTabChange: (section: string | null) => void;
+  private wrapper!: HTMLElement;
 
   constructor(container: HTMLElement, options: TabBarOptions) {
     this.el = container;
     this.onTabChange = options.onTabChange;
+    this.initFades();
+  }
+
+  private initFades(): void {
+    this.wrapper = document.createElement('div');
+    this.wrapper.id = 'tabbar-wrapper';
+    this.el.parentNode!.insertBefore(this.wrapper, this.el);
+    this.wrapper.appendChild(this.el);
+
+    const fadeLeft = document.createElement('span');
+    fadeLeft.className = 'tabbar-fade tabbar-fade--left';
+    fadeLeft.setAttribute('aria-hidden', 'true');
+
+    const fadeRight = document.createElement('span');
+    fadeRight.className = 'tabbar-fade tabbar-fade--right';
+    fadeRight.setAttribute('aria-hidden', 'true');
+
+    this.wrapper.appendChild(fadeLeft);
+    this.wrapper.appendChild(fadeRight);
+
+    this.el.addEventListener('scroll', () => this.updateFades(), { passive: true });
+  }
+
+  private updateFades(): void {
+    const { scrollLeft, clientWidth, scrollWidth } = this.el;
+    const canScrollLeft = scrollLeft > 0;
+    const canScrollRight = scrollLeft + clientWidth < scrollWidth - 1;
+    this.wrapper.classList.toggle('has-left-fade', canScrollLeft);
+    this.wrapper.classList.toggle('has-right-fade', canScrollRight);
   }
 
   update(bookmarks: Bookmark[]): void {
@@ -41,6 +71,8 @@ export class TabBar {
         this.onTabChange(section);
       });
     });
+
+    this.updateFades();
   }
 
   private getTabLabel(tab: string, isActive: boolean): string {

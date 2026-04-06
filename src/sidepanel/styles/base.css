@@ -117,8 +117,12 @@ body {
 }
 
 /* ---- Tab bar ---- */
-#tabbar {
+#tabbar-wrapper {
+  position: relative;
   flex-shrink: 0;
+}
+
+#tabbar {
   display: flex;
   align-items: center;
   gap: 2px;
@@ -131,6 +135,35 @@ body {
 
 #tabbar::-webkit-scrollbar {
   display: none;
+}
+
+.tabbar-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 1;
+}
+
+.tabbar-fade--left {
+  left: 0;
+  background: linear-gradient(to right, var(--color-header-bg), transparent);
+}
+
+.tabbar-fade--right {
+  right: 0;
+  background: linear-gradient(to left, var(--color-header-bg), transparent);
+}
+
+#tabbar-wrapper.has-left-fade .tabbar-fade--left {
+  opacity: 1;
+}
+
+#tabbar-wrapper.has-right-fade .tabbar-fade--right {
+  opacity: 1;
 }
 
 .tab-btn {
