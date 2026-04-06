@@ -24,7 +24,7 @@ export class TabBar {
       .map((tab) => {
         const section = tab === 'All' ? null : tab;
         const isActive = this.activeSection === section;
-        const label = this.getTabLabel(tab, isActive);
+        const label = this.getTabLabel(tab);
         return `<button
           class="tab-btn${isActive ? ' active' : ''}"
           data-section="${section ?? ''}"
@@ -43,13 +43,7 @@ export class TabBar {
     });
   }
 
-  private getTabLabel(tab: string, isActive: boolean): string {
-    // Terminal theme: wrap active tab in brackets
-    // We check via the html data-theme attribute
-    const isTerminal = document.documentElement.getAttribute('data-theme') === 'terminal';
-    if (isTerminal && isActive) {
-      return `[${tab.toUpperCase()}]`;
-    }
+  private getTabLabel(tab: string): string {
     return tab.toUpperCase();
   }
 

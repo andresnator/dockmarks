@@ -409,14 +409,6 @@ body {
   background: #ddd;
 }
 
-/* Terminal preview uses dark colors */
-.theme-card[data-theme-preview="terminal"] .theme-card-preview {
-  background: #111;
-}
-.theme-card[data-theme-preview="terminal"] .preview-block {
-  background: #ffffff;
-}
-
 .theme-card-label {
   padding: 5px 8px;
   font-size: var(--font-size-xs);
