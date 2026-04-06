@@ -19,10 +19,10 @@ metadata:
 
 ## Critical Patterns
 
-### 1. Always use the full template — never omit optional fields
+### 1. Always use the full template — all 7 fields are required
 
-Even if values are unknown, include all fields with sensible defaults or empty markers.
-The AI consuming this JSON must never guess field names.
+All 7 fields (`id`, `name`, `url`, `description`, `logo`, `section`, `tags`) are required in the live feed. Never omit any of them.
+The schema enforces this — entries missing `description`, `logo`, or `tags` will fail validation.
 
 ### 2. `id` must be unique kebab-case derived from the name or domain
 
@@ -61,7 +61,7 @@ Use one of the established sections from `bookmarks.example.json`:
 
 If none fits, propose a new section name in SCREAMING_SNAKE_CASE and ask the user to confirm.
 
-### 5. `tags` — 2 to 4 lowercase kebab-case strings
+### 5. `tags` — 3 lowercase kebab-case strings (2–4 allowed)
 
 Pick terms that a user would naturally search for. Prioritize:
 1. The tool category (e.g. `ci-cd`, `database`, `auth`)

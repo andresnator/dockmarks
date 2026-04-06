@@ -4,7 +4,7 @@
   "title": "Bookmark",
   "description": "A single bookmark entry in the Dockmarks JSON feed. Matches the Bookmark interface in src/shared/types.ts.",
   "type": "object",
-  "required": ["id", "name", "url", "section"],
+  "required": ["id", "name", "url", "description", "logo", "section", "tags"],
   "additionalProperties": false,
   "properties": {
     "id": {
@@ -58,8 +58,8 @@
         "type": "string",
         "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
       },
-      "minItems": 1,
-      "maxItems": 6,
+      "minItems": 2,
+      "maxItems": 4,
       "uniqueItems": true,
       "description": "2-4 lowercase kebab-case strings for search and filtering.",
       "examples": [
