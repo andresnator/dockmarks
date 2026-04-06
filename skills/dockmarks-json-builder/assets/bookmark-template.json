@@ -1,0 +1,24 @@
+{
+  "_comment": "Annotated template for a Dockmarks bookmark entry. Remove all _comment fields before using.",
+
+  "id": "kebab-case-unique-id",
+  "_id_comment": "Unique identifier. Derived from the domain or service name. Lowercase, hyphens only. Must be unique across the entire feed.",
+
+  "name": "Human-readable display name",
+  "_name_comment": "The name shown in the extension UI. Use the official product/service name.",
+
+  "url": "https://example.com",
+  "_url_comment": "The exact URL the bookmark opens. Use the canonical entry point (e.g. app URL, not marketing page).",
+
+  "description": "One sentence describing what the tool does, present tense, max 80 characters.",
+  "_description_comment": "Shown as a subtitle in BookmarkCard. Focus on the primary function, not what the tool 'is'.",
+
+  "logo": "https://www.google.com/s2/favicons?domain=example.com&sz=128",
+  "_logo_comment": "Always use the Google Favicon API at sz=128. Use the ROOT domain only (no subdomain, no path).",
+
+  "section": "SECTION_NAME",
+  "_section_comment": "Category in SCREAMING_SNAKE_CASE. Valid values: ENGINEERING, COLLABORATION, TELEMETRY, SECURITY, CLOUD, DATA. Propose new section to user if none fits.",
+
+  "tags": ["tag-one", "tag-two", "tag-three"],
+  "_tags_comment": "2-4 lowercase kebab-case strings. Pick terms users would type when searching. Category > use-case > ecosystem."
+}

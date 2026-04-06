@@ -57,3 +57,15 @@ The `dist/` folder is what gets loaded as an unpacked extension.
 Unit tests live in `tests/unit/`. `tests/setup.ts` mocks the full `chrome` global (storage, runtime, alarms). Tests cover core modules (`search.ts`, `storage.ts`, `bookmarks.ts`, `recentlyUsed.ts`), theme management, and UI components (`TabBar`, `BookmarkCard`, `Header`, `SettingsView`).
 
 Path aliases available: `@shared/*` → `src/shared/*`, `@components/*` → `src/sidepanel/components/*`.
+
+## Skills (Auto-load based on context)
+
+When you detect any of these contexts, IMMEDIATELY load the corresponding skill BEFORE writing any code.
+
+| Context | Skill to load |
+| ------- | ------------- |
+| User provides a URL/URI to add as a bookmark | `dockmarks-json-builder` |
+| User asks for the bookmark JSON template or schema | `dockmarks-json-builder` |
+| User is building or editing the remote `bookmarks.json` feed | `dockmarks-json-builder` |
+
+Load skills BEFORE generating JSON. Apply ALL patterns from the skill.

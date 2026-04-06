@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "dockmarks-bookmark",
+  "title": "Bookmark",
+  "description": "A single bookmark entry in the Dockmarks JSON feed. Matches the Bookmark interface in src/shared/types.ts.",
+  "type": "object",
+  "required": ["id", "name", "url", "section"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "Unique kebab-case identifier. Must be unique across the entire feed.",
+      "examples": ["github", "docker-hub", "mongodb-atlas"]
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "description": "Human-readable display name shown in the extension UI.",
+      "examples": ["GitHub", "Docker Hub", "MongoDB Atlas"]
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https?://",
+      "description": "The canonical URL the bookmark opens. Must be absolute (http or https).",
+      "examples": ["https://github.com", "https://hub.docker.com"]
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 80,
+      "description": "One-sentence description of what the tool does. Present tense, max 80 characters.",
+      "examples": [
+        "Source control, pull requests, and developer collaboration.",
+        "Container registry for images, teams, and pipelines."
+      ]
+    },
+    "logo": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://www\\.google\\.com/s2/favicons\\?domain=.+&sz=128$",
+      "description": "Logo URL using the Google Favicon API at sz=128. Must use the root domain only.",
+      "examples": [
+        "https://www.google.com/s2/favicons?domain=github.com&sz=128",
+        "https://www.google.com/s2/favicons?domain=docker.com&sz=128"
+      ]
+    },
+    "section": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9]*(_[A-Z][A-Z0-9]*)*$",
+      "description": "Category in SCREAMING_SNAKE_CASE. Established values: ENGINEERING, COLLABORATION, TELEMETRY, SECURITY, CLOUD, DATA.",
+      "examples": ["ENGINEERING", "COLLABORATION", "TELEMETRY", "SECURITY", "CLOUD", "DATA"]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      },
+      "minItems": 1,
+      "maxItems": 6,
+      "uniqueItems": true,
+      "description": "2-4 lowercase kebab-case strings for search and filtering.",
+      "examples": [
+        ["git", "pull-requests", "code-review"],
+        ["ci-cd", "pipelines", "automation"]
+      ]
+    }
+  }
+}
