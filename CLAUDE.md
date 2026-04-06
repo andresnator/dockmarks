@@ -54,6 +54,6 @@ The `dist/` folder is what gets loaded as an unpacked extension.
 
 ### Tests
 
-Unit tests live in `tests/unit/`. `tests/setup.ts` mocks the full `chrome` global (storage, runtime, alarms). Tests cover `search.ts`, `storage.ts`, and `bookmarks.ts`. No DOM/component tests.
+Unit tests live in `tests/unit/`. `tests/setup.ts` mocks the full `chrome` global (storage, runtime, alarms). Tests cover core modules (`search.ts`, `storage.ts`, `bookmarks.ts`, `recentlyUsed.ts`), theme management, and UI components (`TabBar`, `BookmarkCard`, `Header`, `SettingsView`).
 
 Path aliases available: `@shared/*` → `src/shared/*`, `@components/*` → `src/sidepanel/components/*`.
